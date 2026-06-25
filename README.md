@@ -1,6 +1,6 @@
 # React + Vite
 # Das soll die Ordnerstruktur sein!
-
+```
 
 src/
 │
@@ -28,7 +28,7 @@ src/
 └── components/
     └── Navbar.jsx
 
-    
+``` 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
