@@ -30,17 +30,128 @@ src/
 
 ``` 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React Router Demo Projekt
 
-Currently, two official plugins are available:
+Dieses Projekt ist eine Einführung in React Router und zeigt grundlegende sowie erweiterte Routing-Funktionen in einer React-Anwendung.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Inhalte des Projekts
 
-## React Compiler
+- Navigation zwischen Seiten ohne Reload
+- Layout-Struktur mit gemeinsamen Komponenten
+- Dynamische Routen mit URL-Parametern
+- Verschachtelte Routen (Nested Routes)
+- Geschützte Bereiche (Protected Routes)
+- Query Parameter Verarbeitung
+- 404 Fehlerseite
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+# Voraussetzungen
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Für die Nutzung dieses Projekts werden folgende Tools benötigt:
+
+- Node.js (LTS Version empfohlen)
+- npm (wird mit Node.js installiert)
+
+Prüfen der Installation:
+
+```
+
+node -v
+npm -v
+```
+Installation
+1. Repository klonen
+git clone <REPOSITORY-URL>
+cd react-router-demo
+2. Abhängigkeiten installieren
+npm install
+3. React Router installieren
+
+Falls nicht bereits enthalten:
+
+npm install react-router-dom
+4. Entwicklungsserver starten
+npm run dev
+
+Die Anwendung ist anschließend unter folgender Adresse erreichbar:
+```
+http://localhost:5173
+```
+
+Der Bereich /dashboard ist geschützt.
+
+Ohne Login erfolgt eine automatische Weiterleitung zur Login-Seite.
+
+Login erfolgt im Beispiel über den lokalen Speicher:
+
+localStorage.setItem("loggedIn", "true");
+
+Abmeldung:
+
+localStorage.removeItem("loggedIn");
+Navigation
+
+Die Navigation erfolgt über die Navbar-Komponente.
+```
+Diese enthält Links zu:
+
+Home
+About
+Users
+Dashboard
+Login
+Dynamische Routen
+
+Beispiel für eine dynamische Route:
+
+/users/1
+/users/2
+```
+Die ID wird über React Router ausgelesen:
+```
+import { useParams } from "react-router-dom";
+
+const { id } = useParams();
+Query Parameter
+```
+Beispiel:
+
+/about?mode=dark
+
+Auslesen im Code:
+
+import { useSearchParams } from "react-router-dom";
+
+const [searchParams] = useSearchParams();
+const mode = searchParams.get("mode");
+Nested Routes
+
+Im Dashboard werden Unterseiten verwendet:
+
+/dashboard/profile
+/dashboard/settings
+
+Diese werden über <Outlet /> im Layout gerendert.
+
+404 Seite
+
+Für nicht vorhandene Routen wird eine Fehlerseite angezeigt:
+
+Seite nicht gefunden
+
+Route:
+
+path="*"
+Technische Grundlagen
+React (Vite)
+React Router DOM
+JavaScript (ES6+)
+Hinweise
+Änderungen werden automatisch im Browser aktualisiert (Hot Reload)
+Dateinamen sind case-sensitive
+Fehler zuerst in der Browser-Konsole prüfen (F12)
+Jede Seite befindet sich im Ordner src/pages
+Lernziel
+
+Ziel dieses Projekts ist das Verständnis von Client-Side Routing in React sowie der Aufbau moderner Single Page Applications mit React Router.
