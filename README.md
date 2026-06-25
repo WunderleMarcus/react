@@ -1,4 +1,34 @@
 # React + Vite
+# Das soll die Ordnerstruktur sein!
+
+
+src/
+│
+├── main.jsx
+├── App.jsx
+│
+├── layouts/
+│   └── MainLayout.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── About.jsx
+│   ├── Users.jsx
+│   ├── UserDetail.jsx
+│   ├── Dashboard.jsx
+│   ├── Profile.jsx
+│   ├── Settings.jsx
+│   ├── Login.jsx
+│   └── NotFound.jsx
+│
+├── routes/
+│   ├── AppRoutes.jsx
+│   └── ProtectedRoute.jsx
+│
+└── components/
+    └── Navbar.jsx
+
+    
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
